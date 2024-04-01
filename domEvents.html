@@ -1,0 +1,194 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<button>click me 1</button>
+<button>click me 2</button>
+<button>click me 3</button>
+<button>click me 4</button>
+</body>
+
+<script>
+
+// let btns = document.querySelectorAll("button")
+// for(btn of btns){
+// 	btn.onclick=sayHello;
+// 	btn.onmouseenter=function(){
+// 		console.log("enter mouse")
+// 	}
+// }
+// function sayHello(){
+// 	console.log("hello")
+// }
+
+
+let btns=document.querySelectorAll("button")
+
+for(btn of btns){
+	btn.addEventListener("dblclick",sayHello)
+	btn.addEventListener("mouseenter",function(){
+		console.log("enter")
+	})
+}
+function sayHello(){
+    console.log("multiple function exe")
+}
+
+</script>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color</title>
+    <style>
+        body {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            height: 50vh;
+            align-items: center;
+        }
+        button {
+            height: 50px;
+            width: 100px;
+        }
+        div {
+/*            margin: auto;*/
+            height: 100px;
+            width: 500px;
+            border: 3px solid;
+        }
+    </style>
+</head>
+<body>
+    <h3>Random Color</h3>
+    <button>Generate Color</button>
+    <div>This is the color</div>
+</body>
+<script>
+	let btn = document.querySelector("button");
+    btn.addEventListener("click", function(){
+    let h3 = document.querySelector("h3");
+    let color = randomColor();
+    h3.innerText = color;
+
+    let div = document.querySelector("div");
+    div.addEventListener("mouseenter", function(){
+    	console.log("mouse inside box")
+    })
+    div.style.backgroundColor = color;
+    console.log("color updated");
+});
+
+function randomColor() {
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+
+    let mix = `rgb(${red}, ${green}, ${blue})`;
+    return mix;
+}
+</script>
+</html>-->
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>this</title>
+</head>
+<body>
+<h1>hello</h1>
+<h3>head 3</h3>
+<p>this is para</p>
+<button>click me</button>
+</body>
+<script>
+let btn=document.querySelector("button")
+let para=document.querySelector("p")
+let head=document.querySelector("h1")
+let hello=document.querySelector("h3")
+function changeColor(){
+    console.log("color change")
+    this.style.backgroundColor="black"
+}    
+
+btn.addEventListener("click",changeColor)
+para.addEventListener("click",changeColor)
+head.addEventListener("click",changeColor)
+hello.addEventListener("click",changeColor)
+</script>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>keyboard events</title>
+</head>
+<body>
+<input type="text" placeholder="move character"/>
+</body>
+<script>
+    let inp = document.querySelector("input")
+    inp.addEventListener("keydown",function(even){
+        console.log("code",event.code)
+        if(event.code=="ArrowUp"){
+            console.log("character move forward")
+        }else if(event.code=="ArrowRight"){
+            console.log("character move right")
+        }else if(event.code=="ArrowLeft"){
+            console.log("character move left")
+        }else if(event.code=="ArrowDown"){
+            console.log("character move back ")
+        }else{
+            console.log("no movements")
+        }
+    })
+</script>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>form event</title>
+</head>
+<body>
+    <form action="/action">
+    <input type="text" placeholder="username" id="inn" />
+    <input type="password" placeholder="password" id="passs" />
+    <button>register</button>        
+    </form>
+</body>
+<script>
+    let form=document.querySelector("form")
+    form.addEventListener("submit",function(event){
+        event.preventDefault()
+        // let input=document.querySelector("#inn")
+        // let pass=document.querySelector("#passs")
+
+        let input=this.elements[0]
+        let pass=this.elements[1]
+        console.log(input.value)
+        console.log(pass.value)
+        alert(`hi$(input.value),your password is set to $(pass.value)`)
+    })
+</script>
+</html>
