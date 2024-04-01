@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>eventBubling</title>
+</head>
+<body>
+<div style="background-color: yello; width :500px ; ">
+	<ul style="background-color:powderblue;">
+		<li style="background-color :green;">list 1</li>
+		<li style="background-color :green;">list 2</li>
+		<li style="background-color :green;">list 3</li>
+	</ul>
+</div>
+</body>
+<script>
+	let div=document.querySelector("div")
+	let ul=document.querySelector("ul")
+	let lis=document.querySelectorAll("li")
+
+	div.addEventListener("click",function(event){
+		event.stopPropagation()
+		console.log("div was click")
+	})
+
+	ul.addEventListener("click",function(){
+		event.stopPropagation()
+		console.log("ul was click")
+	})
+    for( li of lis){
+
+	li.addEventListener("click",function(){
+		event.stopPropagation()
+		console.log("list was click")
+	})
+    }
+</script>
+</html>
